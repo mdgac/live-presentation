@@ -46,7 +46,17 @@ html,body{
 <div id="loading">Waiting for presenter...</div>
 
 <img id="slide" style="display:none;">
+<script>
 
+document.body.addEventListener("click", () => {
+
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    }
+
+}, { once: true });
+
+</script>
 <script>
 
 const { createClient } = supabase;
