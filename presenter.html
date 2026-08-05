@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Presenter</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+    text-align:center;
+}
+
+h1{
+    font-size:2.2rem;
+}
+
+button{
+    width:100%;
+    padding:24px;
+    margin:15px 0;
+    font-size:2rem;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+#prev{
+    background:#444;
+    color:white;
+}
+
+#next{
+    background:#2ecc71;
+    color:white;
+}
+
+#slideNumber{
+    font-size:2rem;
+    margin:30px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Presenter</h1>
+
+<div id="slideNumber">
+Slide 1
+</div>
+
+<button id="prev">◀ Previous</button>
+
+<button id="next">Next ▶</button>
+
+</div>
+
+</body>
+</html>
