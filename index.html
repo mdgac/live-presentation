@@ -90,19 +90,7 @@ async function loadSlide(){
 
 }
 
-    const {data}=await client
-        .from("presentation")
-        .select("current_slide")
-        .eq("id",1)
-        .single();
-
-    if(data){
-
-        showSlide(data.current_slide);
-
-    }
-
-}
+   
 
 loadSlide();
 
