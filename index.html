@@ -93,8 +93,21 @@ async function loadSlide(){
    
 
 loadSlide();
-
-setInterval(loadSlide,750);
+    
+client
+  .channel("presentation")
+  .on(
+    "postgres_changes",
+    {
+      event: "UPDATE",
+      schema: "public",
+      table: "presentation"
+    },
+    (payload) => {
+      showSlide(payload.new.current_slide);
+    }
+  )
+  .subscribe();
 
 document.addEventListener("keydown",e=>e.preventDefault());
 document.addEventListener("touchmove",e=>e.preventDefault(),{passive:false});
