@@ -49,10 +49,14 @@ html,body{
 
 <script>
 
-const client = supabase.createClient(
+const { createClient } = supabase;
+
+const client = createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+
+console.log("Supabase client created");
 
 const slide=document.getElementById("slide");
 const loading=document.getElementById("loading");
@@ -69,8 +73,22 @@ function showSlide(number){
     }
 
 }
-
 async function loadSlide(){
+
+    console.log("Loading slide...");
+
+    const { data, error } = await client
+        .from("presentation")
+        .select("*");
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
+    if(data && data.length > 0){
+        showSlide(data[0].current_slide);
+    }
+
+}
 
     const {data}=await client
         .from("presentation")
