@@ -70,7 +70,15 @@ console.log("Supabase client created");
 
 const slide=document.getElementById("slide");
 const loading=document.getElementById("loading");
+const images = [];
 
+for(let i = 1; i <= 27; i++){
+
+    const img = new Image();
+    img.src = `slides/Slide${i}.jpeg`;
+    images.push(img);
+
+}
 function showSlide(number){
 
     slide.src=`slides/Slide${number}.jpeg`;
